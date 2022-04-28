@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="crud.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="p-5 mb-4 bg-light rounded-3">
+        <div class="container-fluid py-5">
+            <h1 class="display-5 fw-bold">BASIC CRUD</h1>
+            <p class="col-md-8 fs-4">Create, Read, Update and Delete operations using LocalStorage</p>
+            <button  class="btn btn-outline-secondary btn-lg" data-bs-toggle="modal" data-bs-target="#newRegister" type="button">CADASTRAR NOVO</button>
+        </div>
+    </div>
+
+    <table id="tableClient" class="table table-light table-striped table-hover">
+        <caption>Lista de usuários</caption>
+        <thead>
+          <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Sobrenome</th>
+            <th scope="col">Data de nascimento</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">Contato</th>
+            <th scope="col">Cidade</th>
+            <th scope="col">Ação</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!--
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>23</td>
+            <td>mark@gmail.com</td>
+            <td>117897239862</td>
+            <td>Porto Alegre</td>
+            <td>
+                <button type="button" class="btn btn-outline-secondary"><ion-icon name="ellipsis-horizontal-outline"></ion-icon></button>
+                <button type="button" class="btn btn-outline-secondary"><ion-icon name="trash-outline"></ion-icon></button>               
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>48</td>
+            <td>jacob@gmail.com</td>
+            <td>7398738972</td>
+            <td>Porto Alegre</td>
+            <td>
+                <button type="button" class="btn btn-outline-secondary"><ion-icon name="ellipsis-horizontal-outline"></ion-icon></button>
+                <button type="button" class="btn btn-outline-secondary"><ion-icon name="trash-outline"></ion-icon></button>               
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>Bird</td>
+            <td>66</td>
+            <td>larry@gmail.com</td>
+            <td>74758223435</td>
+            <td>Porto Alegre</td>
+            <td>
+                <button type="button" class="btn btn-outline-secondary"><ion-icon name="ellipsis-horizontal-outline"></ion-icon></button>
+                <button type="button" class="btn btn-outline-secondary"><ion-icon name="trash-outline"></ion-icon></button>               
+            </td>
+        </tr> -->
+        </tbody>
+      </table>
+
+      <!-- Modal - New Register Button -->
+
+      <div class="modal fade" id="newRegister" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="newRegisterLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="newRegisterLabel">Novo usuário</h5>
+              <button id="modalClose" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <form id="form">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputFirstName">Nome</label>
+                            <input type="text" class="form-control" id="inputFirstName" data-index="new" placeholder="Nome" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputLastName">Sobrenome</label>
+                            <input type="text" class="form-control" id="inputLastName" placeholder="Sobrenome" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="inputAge">Data de nascimento</label>
+                            <input type="date" class="form-control" id="inputAge" placeholder="ex. 33" required>
+                        </div>
+                        <div class="form-group col-md-10">
+                            <label for="inputEmail4">Email</label>
+                            <input type="email" class="form-control" id="inputEmail" placeholder="email@email.com" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="inputCel">Celular</label>
+                        <input type="text" class="form-control" id="inputCel" placeholder="ex. 11123412345" required>
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="inputCity">Cidade</label>
+                        <input type="text" class="form-control" id="inputCity" placeholder="Cidade" required>
+                      </div>
+                    </div>                  
+                  </form>
+
+             
+            </div>
+            <div class="modal-footer">
+              <button id="cancelClient" type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button id="saveClient" type="submit" class="btn btn-secondary">Salvar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    <script src="crud.js"></script>  
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
